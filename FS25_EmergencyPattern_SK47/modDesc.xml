@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="90">
+    <author>SK47</author>
+    <version>1.0.0.0</version>
+    
+    <title>
+        <en>Emergency Pattern Lights</en>
+    </title>
+    
+    <description>
+        <en>Adds 3-channel alternating wig-wag emergency light patterns to all vehicles.
+        
+Features:
+- Pattern 1: Turn signals only (Left > Right > Off)
+- Pattern 2: Turns + Beams + Brake (3-channel)
+- Pattern 3: Full Emergency with Reverse (3-channel)
+- Pattern 4: Maximum Emergency with Running Lights (3-channel)
+
+Controls:
+- PAGE UP: Toggle emergency lights on/off
+- PAGE DOWN: Cycle through patterns
+- CTRL + PAGE UP: Increase flash speed
+- CTRL + PAGE DOWN: Decrease flash speed
+
+Settings are saved per vehicle and persist when exiting.
+Lights continue flashing even when you exit the vehicle.
+Speed adjustable from 50ms to 1000ms (default 150ms)</en>
+    </description>
+    
+    <l10n>
+        <text name="input_TOGGLE_EMERGENCY_PATTERN">
+            <en>Toggle Emergency Pattern</en>
+        </text>
+        <text name="input_CYCLE_EMERGENCY_PATTERN">
+            <en>Cycle Emergency Pattern</en>
+        </text>
+    </l10n>
+    
+    <multiplayer supported="true"/>
+    
+    <extraSourceFiles>
+        <sourceFile filename="scripts/EmergencyPattern.lua"/>
+    </extraSourceFiles>
+    
+    <actions>
+        <action name="TOGGLE_EMERGENCY_PATTERN" axisType="HALF"/>
+        <action name="CYCLE_EMERGENCY_PATTERN" axisType="HALF"/>
+        <action name="EMERGENCY_SPEED_UP" axisType="HALF"/>
+        <action name="EMERGENCY_SPEED_DOWN" axisType="HALF"/>
+    </actions>
+    
+    <inputBinding>
+        <actionBinding action="TOGGLE_EMERGENCY_PATTERN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_pageup" />
+        </actionBinding>
+        <actionBinding action="CYCLE_EMERGENCY_PATTERN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_pagedown" />
+        </actionBinding>
+        <actionBinding action="EMERGENCY_SPEED_UP">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lctrl KEY_pageup" />
+        </actionBinding>
+        <actionBinding action="EMERGENCY_SPEED_DOWN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lctrl KEY_pagedown" />
+        </actionBinding>
+    </inputBinding>
+</modDesc>
