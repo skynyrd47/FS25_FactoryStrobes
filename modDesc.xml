@@ -1,66 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="90">
     <author>SK47</author>
-    <version>1.0.0.1</version>
-    
+    <version>1.1.0.0</version>
+    <iconFilename>icon.dds</iconFilename>
+
     <title>
         <en>Emergency Pattern Lights</en>
     </title>
-    
+
     <description>
-        <en>Adds 3-channel alternating wig-wag emergency light patterns to all vehicles.
-        
+        <en>Adds dynamic alternating wig-wag emergency light patterns to all vehicles using native vehicle lights. No custom light nodes required - works universally across all FS25 vehicles.
+
 Features:
-- Pattern 1: Turn signals only (Left > Right > Off)
-- Pattern 2: Turns + Beams + Brake (3-channel)
-- Pattern 3: Full Emergency with Reverse (3-channel)
-- Pattern 4: Maximum Emergency with Running Lights (3-channel)
+- 4 escalating emergency patterns
+- Pattern 1: Turn Signals (Left / Right alternating)
+- Pattern 2: Turns + Low/High Beams + Brake
+- Pattern 3: Full Wig-Wag with Reverse Lights
+- Pattern 4: Maximum Emergency with Running Lights
+- Variable phase timing for realistic, organic flash rhythm
+- Adjustable flash speed from 50ms to 1000ms (default 150ms)
+- Syncs to all attached implements automatically
+- On-screen HUD overlay shows active pattern and speed
 
 Controls:
-- PAGE UP: Toggle emergency lights on/off
-- PAGE DOWN: Cycle through patterns
-- CTRL + PAGE UP: Increase flash speed
-- CTRL + PAGE DOWN: Decrease flash speed
-
-Settings are saved per vehicle and persist when exiting.
-Lights continue flashing even when you exit the vehicle.
-Speed adjustable from 50ms to 1000ms (default 150ms)</en>
+- Shift + Page Up: Toggle emergency lights on/off
+- Shift + Page Down: Cycle through patterns
+- Ctrl + Shift + Page Up: Increase flash speed
+- Ctrl + Shift + Page Down: Decrease flash speed</en>
     </description>
-    
+
     <l10n>
         <text name="input_TOGGLE_EMERGENCY_PATTERN">
-            <en>Toggle Emergency Pattern</en>
+            <en>Toggle Emergency Lights</en>
         </text>
         <text name="input_CYCLE_EMERGENCY_PATTERN">
             <en>Cycle Emergency Pattern</en>
         </text>
+        <text name="input_EMERGENCY_SPEED_UP">
+            <en>Flash Speed: Faster</en>
+        </text>
+        <text name="input_EMERGENCY_SPEED_DOWN">
+            <en>Flash Speed: Slower</en>
+        </text>
     </l10n>
-    
+
     <multiplayer supported="true"/>
-    
+
     <extraSourceFiles>
         <sourceFile filename="scripts/EmergencyPattern.lua"/>
     </extraSourceFiles>
-    
+
     <actions>
         <action name="TOGGLE_EMERGENCY_PATTERN" axisType="HALF"/>
-        <action name="CYCLE_EMERGENCY_PATTERN" axisType="HALF"/>
-        <action name="EMERGENCY_SPEED_UP" axisType="HALF"/>
-        <action name="EMERGENCY_SPEED_DOWN" axisType="HALF"/>
+        <action name="CYCLE_EMERGENCY_PATTERN"  axisType="HALF"/>
+        <action name="EMERGENCY_SPEED_UP"       axisType="HALF"/>
+        <action name="EMERGENCY_SPEED_DOWN"     axisType="HALF"/>
     </actions>
-    
+
     <inputBinding>
         <actionBinding action="TOGGLE_EMERGENCY_PATTERN">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_pageup" />
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_pageup" />
         </actionBinding>
         <actionBinding action="CYCLE_EMERGENCY_PATTERN">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_pagedown" />
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_pagedown" />
         </actionBinding>
         <actionBinding action="EMERGENCY_SPEED_UP">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_lctrl KEY_pageup" />
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lctrl KEY_lshift KEY_pageup" />
         </actionBinding>
         <actionBinding action="EMERGENCY_SPEED_DOWN">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_lctrl KEY_pagedown" />
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lctrl KEY_lshift KEY_pagedown" />
         </actionBinding>
     </inputBinding>
+
 </modDesc>
